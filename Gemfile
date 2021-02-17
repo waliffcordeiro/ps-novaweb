@@ -43,3 +43,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # API
 gem 'rack-cors'
 gem 'rack-attack'
+
+# Test
+gem 'rspec-rails'
+gem 'factory_bot_rails'
