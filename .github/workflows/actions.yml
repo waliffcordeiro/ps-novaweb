@@ -1,0 +1,19 @@
+nome: Publish Docker image
+em:
+  versão:
+    tipos: [published]
+trabalhos:
+  push_to_registry:
+    nome: Push Docker image to GitHub Packages
+    runs-on: ubuntu-latest
+    etapas:
+      - nome: Check out the repo
+        usa: actions/checkout@v2
+      - nome: Push to GitHub Packages
+        usa: docker/build-push-action@v1
+        com:
+          nome de usuário: ${{ github.actor }}
+          senha: ${{ secrets.GITHUB_TOKEN }}
+          registro: docker.pkg.github.com
+          repositório: waliffcordeiro/ps-novaweb/api-novaweb
+          tag_with_ref: true
