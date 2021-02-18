@@ -1,19 +1,20 @@
-nome: Publish Docker image
-em: push
-  versão:
-    tipos: [published]
-trabalhos:
-  push_to_registry:
-    nome: Push Docker image to GitHub Packages
+name: Create and publish a package
+on:
+  push:
+    branches: ['main']
+jobs:
+
+  build-and-push-image:
     runs-on: ubuntu-latest
-    etapas:
-      - nome: Check out the repo
-        usa: actions/checkout@v2
-      - nome: Push to GitHub Packages
-        usa: docker/build-push-action@v1
-        com:
-          nome de usuário: ${{ github.actor }}
-          senha: ${{ secrets.GITHUB_TOKEN }}
-          registro: docker.pkg.github.com
-          repositório: waliffcordeiro/ps-novaweb/api-novaweb
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Build container image
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: ${{ github.repository }}/api-novaweb
+          tag_with_sha: true
           tag_with_ref: true
