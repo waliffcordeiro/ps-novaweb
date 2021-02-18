@@ -18,7 +18,7 @@ class Api::V1::PhonesController < Api::V1::ApiController
     # Pegando o contact_id correto, independente da rota
     contact_id = params[:phone][:contact_id].present? ? params[:phone][:contact_id] : params[:contact_id]
 
-    @phone = Phone.create!(
+    @phone = Phone.new(
         contact_id: contact_id,
         phone_number: params[:phone][:phone_number]
     )
