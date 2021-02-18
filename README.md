@@ -29,3 +29,5 @@ Foi feito o deploy da aplicação utilizando o heroku e pode ser acessado pela U
 Vale ressaltar que o deploy foi feito em um plano gratuito, portanto, em um primeiro acesso, a resposta irá demorar em torno de 10 segundos (tempo para o servidor sair do modo hibernação).
 
 ____
+### Documentação Postman
+A documentação da API pode ser acessada através do link [https://www.getpostman.com/collections/760d50f54b98352e9fc9](https://www.getpostman.com/collections/760d50f54b98352e9fc9)
